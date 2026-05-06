@@ -8,5 +8,4 @@ Right now I am focused on [PromptDock](https://github.com/Xuefeng-Zhu/PromptDock
 
 - Fast personal tools that remove friction from daily workflows
 - AI-native interfaces that make context, prompts, and actions easier to reuse
-- Local-first apps with clean offline paths and optional sync
 - Small experiments at the edge of hardware, productivity, and crypto
