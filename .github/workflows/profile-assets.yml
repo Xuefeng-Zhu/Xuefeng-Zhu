@@ -1,0 +1,76 @@
+name: Refresh profile assets
+
+on:
+  push:
+    branches-ignore:
+      - profile-assets
+  schedule:
+    - cron: '17 7 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: profile-assets-generation-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - name: Check out source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Test data handling and publication
+        run: python3 -m unittest discover -s tests -v
+      - name: Generate profile graphics from visible GitHub data
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 scripts/generate_profile_assets.py --username "${{ github.repository_owner }}" --output build/profile-assets
+      - name: Generate contribution snakes
+        uses: Platane/snk/svg-only@d8f6715049803e982ee5ff501b6b9b7d5deeb09b # v3
+        with:
+          github_user_name: ${{ github.repository_owner }}
+          github_token: ${{ github.token }}
+          outputs: |
+            build/profile-assets/github-snake.svg?palette=github-light&color_snake=%237254bd&color_dots=%23e1e8f4,%23b8d8e7,%2372bbcf,%232a9bb7,%23087e97
+            build/profile-assets/github-snake-dark.svg?palette=github-dark&color_snake=%23bba4ff&color_dots=%23182640,%23275064,%23387f96,%2355b4ca,%2367e8f9
+      - name: Produce reduced-motion snake variants
+        run: python3 scripts/generate_profile_assets.py --make-static-snakes build/profile-assets
+      - name: Validate the complete bundle
+        run: python3 scripts/generate_profile_assets.py --validate-bundle build/profile-assets
+      - name: Upload complete bundle for review and publication
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: profile-assets
+          path: build/profile-assets/
+          if-no-files-found: error
+          retention-days: 14
+
+  publish:
+    if: github.ref == 'refs/heads/main'
+    needs: generate
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    concurrency:
+      group: profile-assets-publication
+      cancel-in-progress: false
+    steps:
+      - name: Check out publication tooling
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          path: source
+      - name: Download the validated bundle
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: profile-assets
+          path: bundle
+      - name: Publish an atomic commit to profile-assets
+        run: python3 source/scripts/publish_profile_assets.py --repository source --bundle bundle

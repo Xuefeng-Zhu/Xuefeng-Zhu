@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="74" viewBox="0 0 1000 74" role="img" aria-labelledby="title desc">
+<title id="title">AI &amp; Full-Stack Engineer · Developer tools · Interactive products</title>
+<desc id="desc">A rotating typewriter headline. Reduced motion displays AI and Full-Stack Engineer.</desc>
+<style>
+text{font-family:Menlo,Consolas,monospace;font-size:28px;fill:#B8DDF5;text-anchor:middle}.two,.three{opacity:0}.one{animation:one 15s linear infinite}.two{animation:two 15s linear infinite}.three{animation:three 15s linear infinite}
+@keyframes one{0%,22%{opacity:1;clip-path:inset(0 0 0 0)}27%{opacity:1;clip-path:inset(0 100% 0 0)}28%,94%{opacity:0;clip-path:inset(0 100% 0 0)}95%{opacity:1;clip-path:inset(0 100% 0 0)}100%{opacity:1;clip-path:inset(0 0 0 0)}}
+@keyframes two{0%,28%{opacity:0;clip-path:inset(0 100% 0 0)}29%{opacity:1;clip-path:inset(0 100% 0 0)}35%,55%{opacity:1;clip-path:inset(0 0 0 0)}60%{opacity:1;clip-path:inset(0 100% 0 0)}61%,100%{opacity:0;clip-path:inset(0 100% 0 0)}}
+@keyframes three{0%,61%{opacity:0;clip-path:inset(0 100% 0 0)}62%{opacity:1;clip-path:inset(0 100% 0 0)}68%,88%{opacity:1;clip-path:inset(0 0 0 0)}93%{opacity:1;clip-path:inset(0 100% 0 0)}94%,100%{opacity:0;clip-path:inset(0 100% 0 0)}}
+@media(prefers-reduced-motion:reduce){.one{animation:none;opacity:1;clip-path:none}.two,.three{animation:none;opacity:0}}
+</style>
+<rect x="1" y="1" width="998" height="72" rx="12" fill="#111827" stroke="#28374F"/>
+<path d="M30 31L39 37L30 43" stroke="#79DDF5" stroke-width="2" fill="none"/>
+<text class="one" x="500" y="47">AI &amp; Full-Stack Engineer</text>
+<text class="two" x="500" y="47">Developer tools</text>
+<text class="three" x="500" y="47">Interactive products</text>
+<path d="M955 47H969" stroke="#B794F6" stroke-width="2"/>
+</svg>
