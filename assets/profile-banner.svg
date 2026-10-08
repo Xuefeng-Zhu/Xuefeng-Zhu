@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="440" viewBox="0 0 1000 440" fill="none" role="img" aria-labelledby="title description">
+  <title id="title">Xuefeng Zhu — AI &amp; Full-Stack Engineer</title>
+  <desc id="description">A dark terminal window with cyan and violet accents, a branching workflow diagram, and the message: Building AI workflows and useful software.</desc>
+  <defs>
+    <linearGradient id="surface" x1="24" y1="24" x2="976" y2="416" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#101C30"/>
+      <stop offset="1" stop-color="#090F1E"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="56" y1="382" x2="944" y2="382" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#66E7E1"/>
+      <stop offset="0.65" stop-color="#66E7E1" stop-opacity="0.15"/>
+      <stop offset="1" stop-color="#AD9DFF"/>
+    </linearGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" stroke="#9DB5D6" stroke-opacity="0.045"/>
+    </pattern>
+  </defs>
+
+  <rect x="1" y="1" width="998" height="438" rx="24" fill="#070D19" stroke="#2B3C54" stroke-width="2"/>
+  <rect x="15" y="15" width="970" height="410" rx="14" fill="url(#surface)"/>
+  <rect x="15" y="15" width="970" height="410" rx="14" fill="url(#grid)"/>
+  <path d="M16 72H984" stroke="#29384E"/>
+  <circle cx="43" cy="44" r="5" fill="#AD9DFF"/>
+  <circle cx="63" cy="44" r="5" fill="#66E7E1"/>
+  <circle cx="83" cy="44" r="5" fill="#596D8B"/>
+  <text x="111" y="49" fill="#B0C0D7" font-family="Menlo, Consolas, Liberation Mono, monospace" font-size="14">xuefeng@github: ~</text>
+  <text x="941" y="49" text-anchor="end" fill="#B0C0D7" font-family="Menlo, Consolas, Liberation Mono, monospace" font-size="13">PROFILE / 01</text>
+
+  <g font-family="Menlo, Consolas, Liberation Mono, monospace">
+    <text x="54" y="124" fill="#66E7E1" font-size="18">&gt; whoami</text>
+    <text x="50" y="207" fill="#F1F5FC" font-size="66" font-weight="700" letter-spacing="-3">Xuefeng Zhu<tspan fill="#66E7E1">_</tspan></text>
+    <text x="54" y="253" fill="#AD9DFF" font-size="26" font-weight="600">AI &amp; Full-Stack Engineer</text>
+    <text x="54" y="306" fill="#C2CEE0" font-size="20">Building AI workflows</text>
+    <text x="54" y="335" fill="#C2CEE0" font-size="20">and useful software.</text>
+  </g>
+
+  <g aria-hidden="true">
+    <circle cx="800" cy="226" r="113" stroke="#66E7E1" stroke-opacity="0.1" stroke-dasharray="2 10"/>
+    <circle cx="800" cy="226" r="78" stroke="#AD9DFF" stroke-opacity="0.13"/>
+    <path d="M800 148V181M800 271V304M722 226H755M845 226H878" stroke="#66E7E1" stroke-opacity="0.65" stroke-width="2"/>
+    <path d="M745 171L767 193M833 259L855 281M745 281L767 259M833 193L855 171" stroke="#AD9DFF" stroke-opacity="0.6" stroke-width="2"/>
+    <rect x="755" y="181" width="90" height="90" rx="20" fill="#122C3D" stroke="#66E7E1" stroke-width="2"/>
+    <path d="M782 210L769 226L782 242M818 210L831 226L818 242M806 206L794 246" stroke="#9AF4ED" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="769" y="113" width="62" height="35" rx="8" fill="#152037" stroke="#52698B"/>
+    <rect x="878" y="208" width="62" height="35" rx="8" fill="#152037" stroke="#52698B"/>
+    <rect x="660" y="208" width="62" height="35" rx="8" fill="#152037" stroke="#52698B"/>
+    <rect x="769" y="304" width="62" height="35" rx="8" fill="#152037" stroke="#52698B"/>
+    <path d="M786 130H814M677 225H705M895 225H923M786 321H814" stroke="#AD9DFF" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="745" cy="171" r="4" fill="#AD9DFF"/>
+    <circle cx="855" cy="281" r="4" fill="#AD9DFF"/>
+    <circle cx="745" cy="281" r="4" fill="#66E7E1"/>
+    <circle cx="855" cy="171" r="4" fill="#66E7E1"/>
+  </g>
+
+  <path d="M54 374H946" stroke="url(#accent)"/>
+  <g fill="#B0C0D7" font-family="Menlo, Consolas, Liberation Mono, monospace" font-size="13" letter-spacing="1.4">
+    <text x="54" y="402">AI WORKFLOWS</text>
+    <text x="248" y="402">FULL-STACK PRODUCTS</text>
+    <text x="525" y="402">DEVELOPER TOOLS</text>
+  </g>
+  <path d="M922 392L930 398L922 404M935 404H945" stroke="#66E7E1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
