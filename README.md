@@ -24,21 +24,21 @@
 ```yaml
 name: Xuefeng Zhu
 role:
-  AI & Full-Stack Engineer
+- AI engineer
+- Full-stack engineer
 focus:
-  - AI workflows
-  - Developer tools
-  - Interactive products
+- AI workflows
+- Developer tools
+- Interactive apps
 building:
-  - BAND Software Factory
-  - NurseBridge
-  - PromptDock
-  - DoodleQuest
-portfolio:
-  xuefeng-zhu.lovable.app
+- BAND factory
+- NurseBridge
+- PromptDock
+- DoodleQuest
+portfolio: see links
 ```
 
-I build across interfaces, backend services, and desktop apps, with a focus on making complex systems useful and understandable.
+**AI & Full-Stack Engineer.** I build across interfaces, backend services, and desktop apps, with a focus on making complex systems useful and understandable.
 
 - **Engineering interests** · Agent orchestration, local-first tools, and full-stack products.
 - **Ask me about** · AI workflows, developer experience, and turning ideas into interactive software.
