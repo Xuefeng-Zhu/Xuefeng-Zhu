@@ -25,9 +25,11 @@ SNAKE = '''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" width="40
 
 def snapshot():
     start, end = assets.date_window(TODAY)
+    days = [{"date": str(start + dt.timedelta(days=i)), "count": 0}
+            for i in range((end - start).days + 1)]
     return {"username": "Xuefeng-Zhu", "generated_date": str(TODAY), "window_start": str(start),
             "window_end": str(end), "followers": 0, "public_repos": 0, "project_stars": 0,
-            "visible_contributions": 0, "days": assets.normalize_calendar([], start, end)}
+            "visible_contributions": 0, "days": days}
 
 
 def response(nodes=None, has_next=False, cursor=None):
@@ -64,9 +66,15 @@ class FakeGitHub(assets.GitHub):
 
 
 class CalendarTests(unittest.TestCase):
-    def test_empty_calendar_is_an_explicit_zero_year(self):
+    def test_empty_api_calendar_is_rejected(self):
         start, end = assets.date_window(TODAY)
-        days = assets.normalize_calendar([], start, end)
+        with self.assertRaisesRegex(assets.DataError, "missing dates"):
+            assets.normalize_calendar([], start, end)
+
+    def test_complete_zero_calendar_is_accepted(self):
+        start, end = assets.date_window(TODAY)
+        days = assets.normalize_calendar([{"contributionDays": [
+            {"date": day["date"], "contributionCount": 0} for day in snapshot()["days"]]}], start, end)
         self.assertEqual(len(days), 365)
         self.assertTrue(all(day["count"] == 0 for day in days))
 
@@ -138,6 +146,20 @@ class APIAndGenerationTests(unittest.TestCase):
             with patch("urllib.request.urlopen", side_effect=urllib.error.URLError("offline")):
                 with self.assertRaises(assets.DataError):
                     assets.generate("Xuefeng-Zhu", output, assets.GitHub("test"), TODAY)
+            self.assertEqual(sentinel.read_text(), "previous complete bundle")
+            self.assertEqual(list(output.iterdir()), [sentinel])
+
+    def test_empty_api_calendar_preserves_previous_output(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "published"
+            output.mkdir()
+            sentinel = output / "previous.svg"
+            sentinel.write_text("previous complete bundle", encoding="utf-8")
+            payload = response()
+            payload["data"]["user"]["contributionsCollection"]["contributionCalendar"]["weeks"] = []
+            client = FakeGitHub([{"login": "Xuefeng-Zhu", "followers": 0, "public_repos": 0}, payload])
+            with self.assertRaisesRegex(assets.DataError, "missing dates"):
+                assets.generate("Xuefeng-Zhu", output, client, TODAY)
             self.assertEqual(sentinel.read_text(), "previous complete bundle")
             self.assertEqual(list(output.iterdir()), [sentinel])
 

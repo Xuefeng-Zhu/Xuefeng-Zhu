@@ -154,12 +154,12 @@ def normalize_calendar(weeks: Any, start: dt.date, end: dt.date) -> list[dict]:
         if isinstance(error, DataError):
             raise
         raise DataError("Invalid contribution date or shape") from None
-    # Empty calendars are a valid empty-user result. A nonempty response must cover
-    # the entire requested range; a truncated API response must never look like zeros.
+    # Even zero-activity accounts return a complete range of zero-valued date cells.
+    # Missing API dates must never become fabricated zero activity.
     dates = [start + dt.timedelta(days=i) for i in range((end - start).days + 1)]
-    if counts and any(date not in counts for date in dates):
+    if any(date not in counts for date in dates):
         raise DataError("Contribution calendar is missing dates in the requested window")
-    return [{"date": str(date), "count": counts.get(date, 0)} for date in dates]
+    return [{"date": str(date), "count": counts[date]} for date in dates]
 
 
 def svg_document(width: int, height: int, title: str, description: str, content: str) -> str:

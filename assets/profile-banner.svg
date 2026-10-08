@@ -6,7 +6,7 @@
  <radialGradient id="cyan" cx="0" cy="0" r="1"><stop stop-color="#00C9FF" stop-opacity=".32"/><stop offset="1" stop-color="#00C9FF" stop-opacity="0"/></radialGradient>
  <radialGradient id="violet" cx="1" cy="1" r=".9"><stop stop-color="#9D50FF" stop-opacity=".35"/><stop offset="1" stop-color="#9D50FF" stop-opacity="0"/></radialGradient>
  <linearGradient id="text" x2="1"><stop stop-color="#80E9FF"/><stop offset=".53" stop-color="#A3C8FF"/><stop offset="1" stop-color="#CCA8FF"/></linearGradient>
- <linearGradient id="line"><stop stop-color="#00C9FF" stop-opacity="0"/><stop offset=".32" stop-color="#60D9F4"/><stop offset=".7" stop-color="#A27AFA"/><stop offset="1" stop-color="#9D50FF" stop-opacity="0"/></linearGradient>
+ <linearGradient id="line" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="1200" y2="0"><stop stop-color="#00C9FF" stop-opacity="0"/><stop offset=".32" stop-color="#60D9F4"/><stop offset=".7" stop-color="#A27AFA"/><stop offset="1" stop-color="#9D50FF" stop-opacity="0"/></linearGradient>
  <style>
   .node{animation:shimmer 6s ease-in-out infinite}.particle{animation:drift 12s ease-in-out infinite}.glow{animation:breathe 10s ease-in-out infinite}
   @keyframes shimmer{0%,100%{opacity:.3}50%{opacity:.85}}
