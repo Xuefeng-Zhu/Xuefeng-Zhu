@@ -1,17 +1,13 @@
 {
   "username": "Xuefeng-Zhu",
-  "generated_date": "2026-11-12",
-  "window_start": "2025-11-13",
-  "window_end": "2026-11-12",
+  "generated_date": "2026-11-13",
+  "window_start": "2025-11-14",
+  "window_end": "2026-11-13",
   "followers": 118,
-  "public_repos": 277,
+  "public_repos": 278,
   "project_stars": 278,
-  "visible_contributions": 3674,
+  "visible_contributions": 3708,
   "days": [
-    {
-      "date": "2025-11-13",
-      "count": 0
-    },
     {
       "date": "2025-11-14",
       "count": 0
@@ -1466,7 +1462,11 @@
     },
     {
       "date": "2026-11-12",
-      "count": 10
+      "count": 19
+    },
+    {
+      "date": "2026-11-13",
+      "count": 25
     }
   ]
 }
